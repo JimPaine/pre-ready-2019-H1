@@ -80,7 +80,7 @@ resource "azurerm_log_analytics_solution" "ChangeTracking" {
 }
 
 resource "azurerm_log_analytics_solution" "Updates" {
-  solution_name         = "Updates${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "Updates"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
@@ -93,7 +93,7 @@ resource "azurerm_log_analytics_solution" "Updates" {
 }
 
 resource "azurerm_log_analytics_solution" "AzureActivity" {
-  solution_name         = "AzureActivity${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "AzureActivity"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
@@ -106,7 +106,7 @@ resource "azurerm_log_analytics_solution" "AzureActivity" {
 }
 
 resource "azurerm_log_analytics_solution" "AzureAutomation" {
-  solution_name         = "AzureAutomation${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "AzureAutomation"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
@@ -119,7 +119,7 @@ resource "azurerm_log_analytics_solution" "AzureAutomation" {
 }
 
 resource "azurerm_log_analytics_solution" "ADAssessment" {
-  solution_name         = "ADAssessment${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "ADAssessment"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
@@ -132,7 +132,7 @@ resource "azurerm_log_analytics_solution" "ADAssessment" {
 }
 
 resource "azurerm_log_analytics_solution" "SQLAssessment" {
-  solution_name         = "SQLAssessment${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "SQLAssessment"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
@@ -145,7 +145,7 @@ resource "azurerm_log_analytics_solution" "SQLAssessment" {
 }
 
 resource "azurerm_log_analytics_solution" "ServiceMap" {
-  solution_name         = "ServiceMap${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "ServiceMap"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
@@ -158,7 +158,7 @@ resource "azurerm_log_analytics_solution" "ServiceMap" {
 }
 
 resource "azurerm_log_analytics_solution" "InfrastructureInsights" {
-  solution_name         = "InfrastructureInsights${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "InfrastructureInsights"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
@@ -171,7 +171,7 @@ resource "azurerm_log_analytics_solution" "InfrastructureInsights" {
 }
 
 resource "azurerm_log_analytics_solution" "AzureAppGatewayAnalytics" {
-  solution_name         = "AzureAppGatewayAnalytics${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "AzureAppGatewayAnalytics"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
@@ -184,7 +184,7 @@ resource "azurerm_log_analytics_solution" "AzureAppGatewayAnalytics" {
 }
 
 resource "azurerm_log_analytics_solution" "AzureNSGAnalytics" {
-  solution_name         = "AzureNSGAnalytics${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "AzureNSGAnalytics"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
