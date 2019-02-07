@@ -69,9 +69,6 @@ resource "azurerm_template_deployment" "currentbillingfeatures" {
             "name": "[variables('pingname')]",
             "apiVersion": "2015-05-01",
             "type": "microsoft.insights/webtests",
-            "tags": {
-                "[concat('hidden-link:', resourceId('microsoft.insights/components/', parameters('appName')))]": "Resource"
-            },
             "location": "[parameters('appLocation')]",
             "dependsOn": [
                 "[concat('microsoft.insights/components/', parameters('appName'))]"
@@ -90,13 +87,7 @@ resource "azurerm_template_deployment" "currentbillingfeatures" {
                 "SyntheticMonitorId": "[variables('pingname')]"
             }
         }
-    ],
-    "outputs": {
-        "AIresourceID": {
-            "type": "string",
-            "value": "[resourceId('microsoft.insights/components', parameters('appName'))]"
-        }
-    }
+    ]
 }
 DEPLOY
 
