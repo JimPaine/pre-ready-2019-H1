@@ -48,7 +48,7 @@ resource "azurerm_virtual_machine" "sql" {
     name              = "${var.envPrefixName}sqlSrv16_OSDisk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
-    managed_disk_type = "${diskType}"
+    managed_disk_type = "${var.diskType}"
   }
   os_profile {
     computer_name  = "${var.envPrefixName}sqlSrv16"

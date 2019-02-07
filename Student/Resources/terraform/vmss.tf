@@ -31,6 +31,7 @@ resource "azurerm_monitor_diagnostic_setting" "vmssip" {
 
     retention_policy {
       enabled = false
+      days = "${var.retention_policy}"
     }
   }
 }
@@ -112,6 +113,7 @@ resource "azurerm_monitor_diagnostic_setting" "vmsslbdiag" {
 
     retention_policy {
       enabled = false
+      days = "${var.retentionPolicy}"
     }
   }
 }

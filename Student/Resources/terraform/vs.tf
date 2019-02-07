@@ -47,7 +47,7 @@ resource "azurerm_virtual_machine" "vs" {
     name              = "${var.envPrefixName}VSSrv17_OSDisk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
-    managed_disk_type = "${diskType}"
+    managed_disk_type = "${var.diskType}"
   }
   os_profile {
     computer_name  = "${var.envPrefixName}VSSrv17"
