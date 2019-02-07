@@ -23,6 +23,8 @@ resource "azurerm_monitor_diagnostic_setting" "vmssip" {
   log {
     category = "DDoSProtectionNotifications"
     enabled  = true
+
+    retention_policy {}
   }
 
   metric {
@@ -100,11 +102,13 @@ resource "azurerm_monitor_diagnostic_setting" "vmsslbdiag" {
   log {
     category = "LoadBalancerAlertEvent"
     enabled  = true
+    retention_policy {}
   }
 
   log {
     category = "LoadBalancerProbeHealthStatus"
     enabled  = true
+    retention_policy {}
   }
 
   metric {
