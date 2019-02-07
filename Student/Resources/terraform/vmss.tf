@@ -37,7 +37,7 @@ resource "azurerm_monitor_diagnostic_setting" "vmssip" {
 
 resource "azurerm_lb" "vmss" {
   name                = "${var.envPrefixName}webScaleSetlb"
-  location            = "${azurerm_resource_group.hack.location"}
+  location            = "${azurerm_resource_group.hack.location}"
   resource_group_name = "${azurerm_resource_group.hack.name}"
 
   frontend_ip_configuration {
