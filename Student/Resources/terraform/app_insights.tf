@@ -21,7 +21,7 @@ resource "azurerm_template_deployment" "currentbillingfeatures" {
             "type": "String"
         },
         "webSrvPublicIP": {
-            "type: "String"
+            "type": "String"
         }
     },
     "variables": {
@@ -97,7 +97,7 @@ resource "azurerm_template_deployment" "currentbillingfeatures" {
         }
     }
 }
-  DEPLOY
+DEPLOY
 
   parameters {
     "appName"     = "${var.envPrefixName}hackAppInsights"
