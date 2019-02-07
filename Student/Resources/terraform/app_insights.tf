@@ -53,9 +53,6 @@ resource "azurerm_template_deployment" "currentbillingfeatures" {
             "type": "microsoft.insights/components/CurrentBillingFeatures",
             "location": "[parameters('appLocation')]",
             "apiVersion": "2015-05-01",
-            "dependsOn": [
-                "[resourceId('microsoft.insights/components', parameters('appName'))]"
-            ],
             "properties": {
                 "CurrentBillingFeatures": "[variables('pricePlan')]",
                 "DataVolumeCap": {
@@ -70,9 +67,6 @@ resource "azurerm_template_deployment" "currentbillingfeatures" {
             "apiVersion": "2015-05-01",
             "type": "microsoft.insights/webtests",
             "location": "[parameters('appLocation')]",
-            "dependsOn": [
-                "[concat('microsoft.insights/components/', parameters('appName'))]"
-            ],
             "properties": {
                 "Name": "[variables('pingname')]",
                 "Description": "[variables('pingname')]",
@@ -92,7 +86,7 @@ resource "azurerm_template_deployment" "currentbillingfeatures" {
 DEPLOY
 
   parameters {
-    "appName"     = "${var.envPrefixName}hackAppInsights"
+    "appName"     = "${azurerm_application_insights.hack.name}"
     "appLocation" = "${azurerm_resource_group.hack.location}"
     "webSrvPublicIP" = "${azurerm_public_ip.vmss.fqdn}"
   }
