@@ -44,7 +44,8 @@ resource "azurerm_template_deployment" "currentbillingfeatures" {
             ],
         
         "pingguid": "[guid(subscription().id)]",        
-        "pingexpected": 200
+        "pingexpected": 200,
+        "pingname": "eShopPingTest"
     },
     "resources": [
         {
