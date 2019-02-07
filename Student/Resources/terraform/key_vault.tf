@@ -1,5 +1,5 @@
 resource "azurerm_key_vault" "hack" {
-  name                = "${var.resource_name}${random_id.hack.dec}MonWorkshopVault"
+  name                = "${var.resource_name}MonWorkshopVault"
   location            = "${azurerm_resource_group.hack.location}"
   resource_group_name = "${azurerm_resource_group.hack.name}"
   tenant_id           = "${data.azurerm_client_config.hack.tenant_id}"
