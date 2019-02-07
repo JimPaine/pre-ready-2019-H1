@@ -49,6 +49,20 @@ resource "azurerm_template_deployment" "currentbillingfeatures" {
     },
     "resources": [
         {
+            "name": "[variables('billingplan')]",
+            "type": "microsoft.insights/components/CurrentBillingFeatures",
+            "location": "[parameters('appLocation')]",
+            "apiVersion": "2015-05-01",
+            "properties": {
+                "CurrentBillingFeatures": "[variables('pricePlan')]",
+                "DataVolumeCap": {
+                    "Cap": "[variables('dailyQuota')]",
+                    "WarningThreshold": "[variables('warningThreshold')]",
+                    "ResetTime": "[variables('dailyQuotaResetTime')]"
+                }
+            }
+        },
+        {
             "name": "[variables('pingname')]",
             "apiVersion": "2015-05-01",
             "type": "microsoft.insights/webtests",
