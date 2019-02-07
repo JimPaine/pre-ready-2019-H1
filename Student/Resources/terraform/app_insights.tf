@@ -1,7 +1,7 @@
 resource "azurerm_application_insights" "hack" {
   name                = "${var.envPrefixName}hackAppInsights"
-  location            = "${azurerm_resource_group.emotionfunc.location}"
-  resource_group_name = "${azurerm_resource_group.emotionfunc.name}"
+  location            = "${azurerm_resource_group.hack.location}"
+  resource_group_name = "${azurerm_resource_group.hack.name}"
   application_type    = "Web"
 }
 
@@ -101,7 +101,7 @@ resource "azurerm_template_deployment" "currentbillingfeatures" {
 
   parameters {
     "appName"     = "${var.envPrefixName}hackAppInsights"
-    "appLocation" = "${azurerm_resource_group.emotionfunc.location}"
+    "appLocation" = "${azurerm_resource_group.hack.location}"
     "webSrvPublicIP" = "${azurerm_public_ip.vmss.fqdn}"
   }
 
