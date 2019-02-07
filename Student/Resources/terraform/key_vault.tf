@@ -28,8 +28,24 @@ resource "azurerm_key_vault_secret" "sshkey" {
   vault_uri = "${azurerm_key_vault.hack.vault_uri}"
 }
 
+resource "azurerm_key_vault_access_policy" "terraformclient" {
+  vault_name          = "${azurerm_key_vault.hack.name}"
+  resource_group_name = "${azurerm_key_vault.hack.resource_group_name}"
+
+  tenant_id = "${data.azurerm_client_config.hack.tenant_id}"
+  object_id = "${data.azurerm_client_config.hack.service_principal_object_id}"
+
+  key_permissions = []
+
+  secret_permissions = [
+      "list",
+      "set",
+      "get",
+    ]
+}
+
 resource "azurerm_monitor_diagnostic_setting" "keyvault" {
-  name               = "${azurerm_key_vault.hack.name}/Microsoft.Insights/setByARM"
+  name               = "${azurerm_key_vault.hack.name}diagsetting"
   
   log_analytics_workspace_id = "${azurerm_log_analytics_workspace.log.id}"
   

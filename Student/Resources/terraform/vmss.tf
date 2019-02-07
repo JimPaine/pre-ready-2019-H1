@@ -13,7 +13,7 @@ resource "azurerm_public_ip" "vmss" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "vmssip" {
-  name               = "${azurerm_public_ip.vmss.name}/Microsoft.Insights/setByARM"
+  name               = "${azurerm_public_ip.vmss.name}vmssip"
   
   log_analytics_workspace_id = "${azurerm_log_analytics_workspace.log.id}"
   
@@ -94,7 +94,7 @@ resource "azurerm_lb_rule" "vmss" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "vmsslbdiag" {
-  name               = "${azurerm_lb.vmss.name}}/Microsoft.Insights/setByARM"
+  name               = "${azurerm_lb.vmss.name}}vmsslbdiag"
   
   log_analytics_workspace_id = "${azurerm_log_analytics_workspace.log.id}"
   
