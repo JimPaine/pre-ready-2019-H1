@@ -6,7 +6,6 @@ variable "tenant_id" {}
 variable "agent_count" {}
 variable "vm_size"{}
 variable "location" {}
-variable "cluster_name" {}
 variable "admin_user" {}
 variable "k8s_version" {}
 variable "envPrefixName" {}
@@ -16,4 +15,5 @@ variable "username" {}
 variable "diskType" {}
 variable "sqlConnectivityType" {}
 variable "sqlAuthenticationLogin" {}
+variable "sshkey_vault_uri" {}
 

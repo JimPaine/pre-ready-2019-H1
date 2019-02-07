@@ -44,12 +44,6 @@ steps:
     targetFiles: '**/*.tfvars'
 
 - script: |
-   ssh-keygen -t rsa -b 4096 -o -C "your_email@example.com" -f id_rsa
-
-  workingDirectory: ./Student/Resources/terraform
-  displayName: 'Generate SSH key'
-
-- script: |
    terraform init \
        -backend-config="resource_group_name=$(tfstate_resource_group)" \
        -backend-config="storage_account_name=$(tfstate_storage_account)" \

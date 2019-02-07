@@ -19,7 +19,7 @@ resource "azurerm_kubernetes_cluster" "akscluster" {
     admin_username = "${var.admin_user}"
 
     ssh_key {
-      key_data = "${file("id_rsa.pub")}"
+      key_data = "${data.azurerm_key_vault_secret.sshkey.value}"
     }
   }
 

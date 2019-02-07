@@ -24,7 +24,7 @@ resource "azurerm_key_vault_secret" "password" {
 
 resource "azurerm_key_vault_secret" "sshkey" {
   name      = "sshkey"
-  value     = "${file("id_rsa.pub")}"
+  value     = "${data.azurerm_key_vault_secret.sshkey.value}"
   vault_uri = "${azurerm_key_vault.hack.vault_uri}"
 }
 
