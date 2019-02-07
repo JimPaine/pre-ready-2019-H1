@@ -31,7 +31,7 @@ resource "azurerm_monitor_diagnostic_setting" "vmssip" {
 
     retention_policy {
       enabled = false
-      days = "${var.retention_policy}"
+      days = "${var.retentionPolicy}"
     }
   }
 }
