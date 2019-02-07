@@ -10,7 +10,7 @@ resource "azurerm_public_ip" "vs" {
   }
 }
 
-resource "azurerm_network_interface" "sql" {
+resource "azurerm_network_interface" "vs" {
   name                = "${var.envPrefixName}VSSrv17Nic"
   location            = "${azurerm_resource_group.hack.location}"
   resource_group_name = "${azurerm_resource_group.hack.name}"

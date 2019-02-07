@@ -10,8 +10,8 @@ data "azurerm_key_vault_secret" "aksspnsecret" {
 
 resource "azurerm_kubernetes_cluster" "akscluster" {
   name                = "${var.resource_name}aksdemo"
-  location            = "${azurerm_resource_group.aksrg.location}"
-  resource_group_name = "${azurerm_resource_group.aksrg.name}"
+  location            = "${azurerm_resource_group.aks.location}"
+  resource_group_name = "${azurerm_resource_group.aks.name}"
   dns_prefix          = "${var.resource_name}aksdemo"
   kubernetes_version  = "${var.k8s_version}"
 
