@@ -230,7 +230,7 @@ resource "azurerm_virtual_machine_extension" "sqlpolicy" {
 
   settings = <<SETTINGS
     {
-        "workspaceId": "${azurerm_log_analytics_workspace.log.workspace_Id}"
+        "workspaceId": "${azurerm_log_analytics_workspace.log.workspace_id}"
     }
 SETTINGS
 
