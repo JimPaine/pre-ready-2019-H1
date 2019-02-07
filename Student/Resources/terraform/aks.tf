@@ -1,13 +1,3 @@
-data "azurerm_key_vault_secret" "aksvault" {
-  name      = "${var.ssh_keyvault_secret_name}"
-  vault_uri = "${var.keyvault_uri}"
-}
-
-data "azurerm_key_vault_secret" "aksspnsecret" {
-  name      = "${var.spn_keyvault_secret_name}"
-  vault_uri = "${var.keyvault_uri}"
-}
-
 resource "azurerm_kubernetes_cluster" "akscluster" {
   name                = "${var.resource_name}aksdemo"
   location            = "${azurerm_resource_group.aks.location}"
@@ -29,7 +19,7 @@ resource "azurerm_kubernetes_cluster" "akscluster" {
     vm_size         = "${var.vm_size}"
     os_type         = "Linux"
     os_disk_size_gb = 30
-    vnet_subnet_id  = "${var.aks_subnetId}"
+    vnet_subnet_id  = "${azurerm_subnet.aks.id}"
   }
 
   addon_profile {

@@ -33,6 +33,8 @@ variables:
   value: 'Private'
 - name: sqlAuthenticationLogin
   value: 'sqladmin'
+- name: namespace
+  value: 'hack'
 
 steps:
 

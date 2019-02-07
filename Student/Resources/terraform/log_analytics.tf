@@ -196,15 +196,3 @@ resource "azurerm_log_analytics_solution" "AzureNSGAnalytics" {
   }
 }
 
-resource "azurerm_log_analytics_solution" "AzureNSGAnalytics" {
-  solution_name         = "AzureNSGAnalytics${azurerm_log_analytics_workspace.log.name}"
-  location              = "${azurerm_resource_group.hack.location}"
-  resource_group_name   = "${azurerm_resource_group.hack.name}"
-  workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
-  workspace_name        = "${azurerm_log_analytics_workspace.log.name}"
-
-  plan {
-    publisher = "Microsoft"
-    product   = "OMSGallery/AzureNSGAnalytics"
-  }
-}

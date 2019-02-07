@@ -17,3 +17,6 @@ variable "sqlConnectivityType" {}
 variable "sqlAuthenticationLogin" {}
 variable "sshkey_vault_uri" {}
 
+variable "namespace" {}
+
+data "azurerm_client_config" "hack" {}
