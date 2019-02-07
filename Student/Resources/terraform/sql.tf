@@ -236,7 +236,7 @@ SETTINGS
 
   protected_settings = <<PROTECTEDSETTINGS
     {
-        "workspaceKey": "${azurerm_log_analytics_workspace.log.primary_access_key}"
+        "workspaceKey": "${azurerm_log_analytics_workspace.log.primary_shared_key}"
     }
 PROTECTEDSETTINGS
 

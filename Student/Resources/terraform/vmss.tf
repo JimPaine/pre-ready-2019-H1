@@ -13,7 +13,7 @@ resource "azurerm_public_ip" "vmss" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "vmssip" {
-  name               = "${azurerm_public_ip.vmss.vmss.name}/Microsoft.Insights/setByARM"
+  name               = "${azurerm_public_ip.vmss.name}/Microsoft.Insights/setByARM"
   
   log_analytics_workspace_id = "${azurerm_log_analytics_workspace.log.id}"
   
@@ -211,7 +211,7 @@ CUSTOMSCRIPTSETTINGS
 LOGSETTINGS
       protected_settings = <<LOGPROTECTED
         {
-            "workspaceKey": "${azurerm_log_analytics_workspace.log.primary_access_key}"
+            "workspaceKey": "${azurerm_log_analytics_workspace.log.primary_shared_key}"
         }
 LOGPROTECTED
     }
