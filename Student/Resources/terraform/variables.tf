@@ -19,4 +19,7 @@ variable "sshkey_vault_uri" {}
 
 variable "namespace" {}
 
+variable "aks_sp_id" {}
+variable "aks_sp_password" {}
+
 data "azurerm_client_config" "hack" {}
