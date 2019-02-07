@@ -479,7 +479,7 @@ WADSETTINGS
             }
         }
 DIAGSETTINGS
-    }
+
     protected_settings = <<DIAGPROTECTED
         {
             "storageAccountName": "${azurerm_storage_account.hack.name}",
@@ -487,6 +487,8 @@ DIAGSETTINGS
             "storageAccountEndPoint": "https://core.windows.net/"
         }
 DIAGPROTECTED
+    }
+
 }
 
 resource "azurerm_autoscale_setting" "vmss" {
