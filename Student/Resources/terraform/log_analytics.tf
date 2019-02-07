@@ -15,7 +15,7 @@ resource "azurerm_management_group" "log" {
 }
 
 resource "azurerm_log_analytics_solution" "Security" {
-  solution_name         = "Security${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "Security"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
@@ -28,7 +28,7 @@ resource "azurerm_log_analytics_solution" "Security" {
 }
 
 resource "azurerm_log_analytics_solution" "AgentHealthAssessment" {
-  solution_name         = "AgentHealthAssessment${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "AgentHealthAssessment"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
@@ -41,7 +41,7 @@ resource "azurerm_log_analytics_solution" "AgentHealthAssessment" {
 }
 
 resource "azurerm_log_analytics_solution" "ContainerInsights" {
-  solution_name         = "ContainerInsights${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "ContainerInsights"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
@@ -54,7 +54,7 @@ resource "azurerm_log_analytics_solution" "ContainerInsights" {
 }
 
 resource "azurerm_log_analytics_solution" "AzureSQLAnalytics" {
-  solution_name         = "AzureSQLAnalytics${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "AzureSQLAnalytics"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
@@ -67,7 +67,7 @@ resource "azurerm_log_analytics_solution" "AzureSQLAnalytics" {
 }
 
 resource "azurerm_log_analytics_solution" "ChangeTracking" {
-  solution_name         = "ChangeTracking${azurerm_log_analytics_workspace.log.name}"
+  solution_name         = "ChangeTracking"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
