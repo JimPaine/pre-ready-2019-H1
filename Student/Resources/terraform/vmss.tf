@@ -129,7 +129,7 @@ resource "azurerm_monitor_diagnostic_setting" "vmsslbdiag" {
 }
 
 resource "azurerm_virtual_machine_scale_set" "vmss" {
-  name                = "${envPrefixName}vmsss"
+  name                = "${var.envPrefixName}vmsss"
   location            = "${azurerm_resource_group.hack.location}"
   resource_group_name = "${azurerm_resource_group.hack.name}"
 
@@ -165,7 +165,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
   }
 
   os_profile {
-    computer_name_prefix = "${envPrefixName}vmsss"
+    computer_name_prefix = "${var.envPrefixName}vmsss"
     admin_username       = "${var.username}"
   }
 
@@ -250,7 +250,7 @@ WADSETTINGS
                 "DiagnosticMonitorConfiguration": {
                     "overallQuotaInMB": 50000,
                     "Metrics": {
-                        "resourceId": "Microsoft.Compute/virtualMachineScaleSets/${envPrefixName}vmsss",
+                        "resourceId": "Microsoft.Compute/virtualMachineScaleSets/${var.envPrefixName}vmsss",
                         "MetricAggregation": [
                             {
                                 "scheduledTransferPeriod": "PT1H"
