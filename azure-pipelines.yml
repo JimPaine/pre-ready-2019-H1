@@ -3,20 +3,36 @@ queue:
 
 
 variables:
-  tfstate_key: 'jimpaine.pre-ready-2019-H1.master.tfstate'
-  resource_name: 'jp174'
-  agent_count: '3'
-  vm_size: 'Standard_B2ms'
-  location: 'eastus'
-  admin_user: 'demouser'
-  k8s_version: '1.11.5'
-  envPrefixName: 'jphack118'
-  retentionPolicy: '90'
-  sqlVmSize: 'Standard_DS3_v2'
-  username: 'vmadmin'
-  diskType: 'Premium_LRS'
-  sqlConnectivityType: 'Private'
-  sqlAuthenticationLogin: 'sqladmin'
+- group: 'Terraform Service Principal'
+- group: 'Terraform State'
+- name: tfstate_key
+  value: 'jimpaine.pre-ready-2019-H1.master.tfstate'
+- name: resource_name
+  value: 'jp174'
+- name: agent_count
+  value: '3'
+- name: vm_size
+  value: 'Standard_B2ms'
+- name: location
+  value: 'eastus'
+- name: admin_user
+  value: 'demouser'
+- name: k8s_version
+  value: '1.11.5'
+- name: envPrefixName
+  value: 'jphack118'
+- name: retentionPolicy
+  value: '90'
+- name: sqlVmSize
+  value: 'Standard_DS3_v2'
+- name: username
+  value: 'vmadmin'
+- name: diskType
+  value: 'Premium_LRS'
+- name: sqlConnectivityType
+  value: 'Private'
+- name: sqlAuthenticationLogin
+  value: 'sqladmin'
 
 steps:
 
