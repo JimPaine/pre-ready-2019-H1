@@ -6,14 +6,6 @@ resource "azurerm_log_analytics_workspace" "log" {
   retention_in_days   = "${var.retentionPolicy}"
 }
 
-data "azurerm_subscription" "current" {}
-
-resource "azurerm_management_group" "log" {
-  subscription_ids = [
-    "${data.azurerm_subscription.current.id}",
-  ]
-}
-
 resource "azurerm_log_analytics_solution" "Security" {
   solution_name         = "Security"
   location              = "${azurerm_resource_group.hack.location}"
