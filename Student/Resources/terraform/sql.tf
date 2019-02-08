@@ -29,7 +29,7 @@ resource "azurerm_network_interface" "sql" {
 }
 
 resource "azurerm_virtual_machine" "sql" {
-  name                  = "${var.envPrefixName}sqlSrv16"
+  name                  = "sqlsrv16"
   location              = "${azurerm_resource_group.hack.location}"
   resource_group_name   = "${azurerm_resource_group.hack.name}"
   network_interface_ids = ["${azurerm_network_interface.sql.id}"]
