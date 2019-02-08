@@ -70,7 +70,7 @@ resource "azurerm_virtual_machine" "sql" {
 }
 
 resource "azurerm_virtual_machine_extension" "sqlwad" {
-  name                 = "${var.envPrefixName}sqlSrv16/WADExtensionSetup"
+  name                 = "sqlsrv16/WADExtensionSetup"
   location             = "${azurerm_resource_group.hack.location}"
   resource_group_name  = "${azurerm_resource_group.hack.name}"
   virtual_machine_name = "${azurerm_virtual_machine.sql.name}"
@@ -86,7 +86,7 @@ SETTINGS
 }
 
 resource "azurerm_virtual_machine_extension" "sqldiag" {
-  name                 = "${var.envPrefixName}sqlSrv16/VMDiagnosticsSettings"
+  name                 = "sqlsrv16/VMDiagnosticsSettings"
   location             = "${azurerm_resource_group.hack.location}"
   resource_group_name  = "${azurerm_resource_group.hack.name}"
   virtual_machine_name = "${azurerm_virtual_machine.sql.name}"
@@ -167,7 +167,7 @@ PROTECTEDSETTINGS
 }
 
 resource "azurerm_virtual_machine_extension" "sqliaas" {
-  name                 = "${var.envPrefixName}sqlSrv16/SqlIaasExtension"
+  name                 = "sqlsrv16/SqlIaasExtension"
   location             = "${azurerm_resource_group.hack.location}"
   resource_group_name  = "${azurerm_resource_group.hack.name}"
   virtual_machine_name = "${azurerm_virtual_machine.sql.name}"
@@ -211,7 +211,7 @@ PROTECTEDSETTINGS
 }
 
 resource "azurerm_virtual_machine_extension" "sqlagent" {
-  name                 = "${var.envPrefixName}sqlSrv16/DependencyAgent"
+  name                 = "sqlsrv16/DependencyAgent"
   location             = "${azurerm_resource_group.hack.location}"
   resource_group_name  = "${azurerm_resource_group.hack.name}"
   virtual_machine_name = "${azurerm_virtual_machine.sql.name}"
@@ -222,7 +222,7 @@ resource "azurerm_virtual_machine_extension" "sqlagent" {
 }
 
 resource "azurerm_virtual_machine_extension" "sqlpolicy" {
-  name                 = "${var.envPrefixName}sqlSrv16/laPolicy"
+  name                 = "sqlsrv16/laPolicy"
   location             = "${azurerm_resource_group.hack.location}"
   resource_group_name  = "${azurerm_resource_group.hack.name}"
   virtual_machine_name = "${azurerm_virtual_machine.sql.name}"

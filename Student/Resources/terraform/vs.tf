@@ -50,13 +50,13 @@ resource "azurerm_virtual_machine" "vs" {
     managed_disk_type = "${var.diskType}"
   }
   os_profile {
-    computer_name  = "${var.envPrefixName}VSSrv17"
+    computer_name  = "vssrv17"
     admin_username = "${var.username}"
     admin_password = "${random_string.password.result}"
   }
 
   os_profile_windows_config {
-    
+
   }
 
   identity {
@@ -69,7 +69,7 @@ resource "azurerm_virtual_machine" "vs" {
 }
 
 resource "azurerm_virtual_machine_extension" "vsscript" {
-  name                 = "${var.envPrefixName}VSSrv17CustomScriptExtension"
+  name                 = "vssrv17CustomScriptExtension"
   location             = "${azurerm_resource_group.hack.location}"
   resource_group_name  = "${azurerm_resource_group.hack.name}"
   virtual_machine_name = "${azurerm_virtual_machine.vs.name}"
