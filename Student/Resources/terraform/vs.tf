@@ -69,7 +69,7 @@ resource "azurerm_virtual_machine" "vs" {
 }
 
 resource "azurerm_virtual_machine_extension" "vsscript" {
-  name                 = "vssrv17CustomScriptExtension"
+  name                 = "vssrv17"
   location             = "${azurerm_resource_group.hack.location}"
   resource_group_name  = "${azurerm_resource_group.hack.name}"
   virtual_machine_name = "${azurerm_virtual_machine.vs.name}"
