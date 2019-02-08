@@ -167,6 +167,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
   os_profile {
     computer_name_prefix = "node"
     admin_username       = "${var.username}"
+    admin_password = "${random_string.password.result}"
   }
 
   network_profile {

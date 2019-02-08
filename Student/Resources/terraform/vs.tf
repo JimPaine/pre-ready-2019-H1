@@ -56,7 +56,7 @@ resource "azurerm_virtual_machine" "vs" {
   }
 
   os_profile_windows_config {
-
+    provision_vm_agent = true
   }
 
   identity {
