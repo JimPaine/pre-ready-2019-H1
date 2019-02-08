@@ -6,7 +6,7 @@ resource "azurerm_application_insights" "hack" {
 }
 
 resource "azurerm_template_deployment" "webtest" {
-  name                = "${var.envPrefixName}hackAppInsights"
+  name                = "${var.envPrefixName}webtest"
   resource_group_name = "${azurerm_resource_group.hack.name}"
 
   template_body = <<DEPLOY
@@ -21,6 +21,9 @@ resource "azurerm_template_deployment" "webtest" {
             "type": "String"
         },
         "subscription_id": {
+            "type": "String"
+        },
+        "webSrvPublicIP": {
             "type": "String"
         }
     },
@@ -47,6 +50,9 @@ resource "azurerm_template_deployment" "webtest" {
             "apiVersion": "2015-05-01",
             "type": "microsoft.insights/webtests",
             "location": "[parameters('appLocation')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
+            ],
             "tags": {
                 "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
             },
@@ -72,6 +78,7 @@ DEPLOY
     "appName"     = "${azurerm_application_insights.hack.name}"
     "appLocation" = "${azurerm_resource_group.hack.location}"
     "subscription_id" = "${var.subscription_id}"
+    "webSrvPublicIP" = "${azurerm_public_ip.vmss.fqdn}"
   }
 
   deployment_mode = "Incremental"
