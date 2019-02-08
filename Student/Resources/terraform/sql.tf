@@ -154,7 +154,6 @@ resource "azurerm_virtual_machine_extension" "sqldiag" {
                     },
                     "StorageAccount": "${azurerm_storage_account.hack.name}"
                 }
-    }
 SETTINGS
 
   protected_settings = <<PROTECTEDSETTINGS
