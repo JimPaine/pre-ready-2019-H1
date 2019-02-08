@@ -51,7 +51,7 @@ resource "azurerm_template_deployment" "webtest" {
                 "Frequency": 300,
                 "Timeout": 30,
                 "Kind": "ping",
-                "Locations": "[
+                "Locations": [
                     {
                         "Id": "us-il-ch1-azr"
                     },
@@ -61,7 +61,7 @@ resource "azurerm_template_deployment" "webtest" {
                     {
                         "Id": "us-tx-sn1-azr"
                     }
-                ]",
+                ],
                 "Configuration": {
                     "WebTest": "[concat('<WebTest Name=\"', variables('pingname'), '\"',  ' Id=\"', variables('pingguid') ,'\"    Enabled=\"True\" CssProjectStructure=\"\" CssIteration=\"\" Timeout=\"0\" WorkItemIds=\"\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" Description=\"\" CredentialUserName=\"\" CredentialPassword=\"\" PreAuthenticate=\"True\" Proxy=\"default\" StopOnError=\"False\" RecordedResultFile=\"\" ResultsLocale=\"\">        <Items>        <Request Method=\"GET\" Guid=\"a5f10126-e4cd-570d-961c-cea43999a200\" Version=\"1.1\" Url=\"', parameters('webSrvPublicIP') ,'\" ThinkTime=\"0\" Timeout=\"300\" ParseDependentRequests=\"True\" FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\" ResponseTimeGoal=\"0\" Encoding=\"utf-8\" ExpectedHttpStatusCode=\"', variables('pingexpected') ,'\" ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" /></Items></WebTest>')]"
                 },
