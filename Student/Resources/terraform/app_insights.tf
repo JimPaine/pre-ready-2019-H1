@@ -17,12 +17,6 @@ resource "azurerm_template_deployment" "webtest" {
         "appLocation": {
             "type": "String"
         },
-        "appName": {
-            "type": "String"
-        },
-        "webSrvPublicIP": {
-            "type": "String"
-        },
         "subscription_id": {
             "type": "String"
         }
@@ -40,7 +34,7 @@ resource "azurerm_template_deployment" "webtest" {
                 }
             ],
         
-        "pingguid": "[guid(parameters(subscription_id))]",        
+        "pingguid": "[guid(parameters('subscription_id'))]",        
         "pingexpected": 200,
         "pingname": "eShopPingTest"
     },
@@ -69,9 +63,7 @@ resource "azurerm_template_deployment" "webtest" {
 DEPLOY
 
   parameters {
-    "appName"     = "${azurerm_application_insights.hack.name}"
     "appLocation" = "${azurerm_resource_group.hack.location}"
-    "webSrvPublicIP" = "${azurerm_public_ip.vmss.fqdn}"
     "subscription_id" = "${var.subscription_id}"
   }
 
