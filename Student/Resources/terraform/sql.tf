@@ -56,6 +56,10 @@ resource "azurerm_virtual_machine" "sql" {
     admin_password = "${random_string.password.result}"
   }
 
+  os_profile_windows_config {
+    
+  }
+
   identity {
     type = "SystemAssigned"
   }
