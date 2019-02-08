@@ -17,6 +17,9 @@ resource "azurerm_template_deployment" "webtest" {
         "appLocation": {
             "type": "String"
         },
+        "appName": {
+            "type": "String"
+        },
         "subscription_id": {
             "type": "String"
         }
@@ -44,6 +47,9 @@ resource "azurerm_template_deployment" "webtest" {
             "apiVersion": "2015-05-01",
             "type": "microsoft.insights/webtests",
             "location": "[parameters('appLocation')]",
+            "tags": {
+                "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
+            },
             "properties": {
                 "Name": "[variables('pingname')]",
                 "Description": "[variables('pingname')]",
@@ -63,6 +69,7 @@ resource "azurerm_template_deployment" "webtest" {
 DEPLOY
 
   parameters {
+    "appName"     = "${azurerm_application_insights.hack.name}"
     "appLocation" = "${azurerm_resource_group.hack.location}"
     "subscription_id" = "${var.subscription_id}"
   }
