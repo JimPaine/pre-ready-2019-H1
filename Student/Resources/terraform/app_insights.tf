@@ -5,13 +5,13 @@ resource "azurerm_application_insights" "hack" {
   application_type    = "Web"
 }
 
-resource "azurerm_template_deployment" "currentbillingfeatures" {
+resource "azurerm_template_deployment" "webtest" {
   name                = "${var.envPrefixName}hackAppInsights"
   resource_group_name = "${azurerm_resource_group.hack.name}"
 
   template_body = <<DEPLOY
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appLocation": {
@@ -22,15 +22,12 @@ resource "azurerm_template_deployment" "currentbillingfeatures" {
         },
         "webSrvPublicIP": {
             "type": "String"
+        },
+        "subscription_id": {
+            "type": "String"
         }
     },
     "variables": {
-        "pricePlan": "Basic",
-        "billingplan": "[concat(parameters('appName'),'/', variables('pricePlan'))]",
-        "dailyQuota": 100,
-        "warningThreshold": 90,
-        "dailyQuotaResetTime": 24,
-        "variables": "eShopPingTest",
         "testlocations": [
                 {
                     "Id": "us-il-ch1-azr"
@@ -43,25 +40,11 @@ resource "azurerm_template_deployment" "currentbillingfeatures" {
                 }
             ],
         
-        "pingguid": "[guid(subscription().id)]",        
+        "pingguid": "[guid(parameters(subscription_id))]",        
         "pingexpected": 200,
         "pingname": "eShopPingTest"
     },
     "resources": [
-        {
-            "name": "[variables('billingplan')]",
-            "type": "microsoft.insights/components/CurrentBillingFeatures",
-            "location": "[parameters('appLocation')]",
-            "apiVersion": "2015-05-01",
-            "properties": {
-                "CurrentBillingFeatures": "[variables('pricePlan')]",
-                "DataVolumeCap": {
-                    "Cap": "[variables('dailyQuota')]",
-                    "WarningThreshold": "[variables('warningThreshold')]",
-                    "ResetTime": "[variables('dailyQuotaResetTime')]"
-                }
-            }
-        },
         {
             "name": "[variables('pingname')]",
             "apiVersion": "2015-05-01",
@@ -89,6 +72,7 @@ DEPLOY
     "appName"     = "${azurerm_application_insights.hack.name}"
     "appLocation" = "${azurerm_resource_group.hack.location}"
     "webSrvPublicIP" = "${azurerm_public_ip.vmss.fqdn}"
+    "subscription_id" = "${var.subscription_id}"
   }
 
   deployment_mode = "Incremental"
