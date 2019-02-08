@@ -51,7 +51,7 @@ resource "azurerm_virtual_machine" "sql" {
     managed_disk_type = "${var.diskType}"
   }
   os_profile {
-    computer_name  = "${var.envPrefixName}sqlSrv16"
+    computer_name  = "sqlsrv16"
     admin_username = "${var.username}"
     admin_password = "${random_string.password.result}"
   }
