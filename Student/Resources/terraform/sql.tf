@@ -93,7 +93,6 @@ resource "azurerm_virtual_machine_extension" "sqldiag" {
   publisher            = "Microsoft.Azure.Diagnostics"
   type                 = "IaaSDiagnostics"
   type_handler_version = "1.5"
-  auto_upgrade_minor_version = true
 
   settings = <<SETTINGS
     {
@@ -174,7 +173,6 @@ resource "azurerm_virtual_machine_extension" "sqliaas" {
   publisher            = "Microsoft.SqlServer.Management"
   type                 = "SqlIaaSAgent"
   type_handler_version = "1.2"
-  auto_upgrade_minor_version = true
 
   settings = <<SETTINGS
     {
@@ -218,7 +216,6 @@ resource "azurerm_virtual_machine_extension" "sqlagent" {
   publisher            = "Microsoft.Azure.Monitoring.DependencyAgent"
   type                 = "DependencyAgentWindows"
   type_handler_version = "9.4"
-  auto_upgrade_minor_version = true
 }
 
 resource "azurerm_virtual_machine_extension" "sqlpolicy" {
@@ -229,7 +226,6 @@ resource "azurerm_virtual_machine_extension" "sqlpolicy" {
   publisher            = "Microsoft.EnterpriseCloud.Monitoring"
   type                 = "MicrosoftMonitoringAgent"
   type_handler_version = "1.0"
-  auto_upgrade_minor_version = true
 
   settings = <<SETTINGS
     {

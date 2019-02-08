@@ -135,7 +135,6 @@ DEPLOY
   parameters {
     "appName"     = "${var.envPrefixName}insights"
     "appLocation" = "${azurerm_resource_group.hack.location}"
-    "subscription_id" = "${var.subscription_id}"
     "webSrvPublicIP" = "${azurerm_public_ip.vmss.fqdn}"
   }
 
