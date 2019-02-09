@@ -70,7 +70,7 @@ resource "azurerm_virtual_machine" "sql" {
 }
 
 resource "azurerm_virtual_machine_extension" "sqlwad" {
-  name                 = "sqlsrv16"
+  name                 = "ManagedIdentityExtensionForWindows"
   location             = "${azurerm_resource_group.hack.location}"
   resource_group_name  = "${azurerm_resource_group.hack.name}"
   virtual_machine_name = "${azurerm_virtual_machine.sql.name}"
@@ -86,7 +86,7 @@ SETTINGS
 }
 
 resource "azurerm_virtual_machine_extension" "sqldiag" {
-  name                 = "sqlsrv16"
+  name                 = "IaaSDiagnostics"
   location             = "${azurerm_resource_group.hack.location}"
   resource_group_name  = "${azurerm_resource_group.hack.name}"
   virtual_machine_name = "${azurerm_virtual_machine.sql.name}"
